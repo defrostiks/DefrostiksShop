@@ -1,8 +1,10 @@
 package com.example.defrostiksshop
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         val userEmail = findViewById<EditText>(R.id.userEmail)
         val userPass = findViewById<EditText>(R.id.userPass)
         val buttonReg = findViewById<Button>(R.id.buttonReg)
+        val linkToAuth = findViewById<TextView>(R.id.linkToAuth)
+
+        linkToAuth.setOnClickListener {
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+        }
 
         buttonReg.setOnClickListener {
             val login = userLogin.text.toString().trim()
