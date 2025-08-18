@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DefrostiksShop">
         <activity
+            android:name=".ItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".ItemsActivity"
             android:exported="false" />
         <activity

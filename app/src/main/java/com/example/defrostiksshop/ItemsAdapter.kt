@@ -1,9 +1,11 @@
 package com.example.defrostiksshop
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +30,15 @@ class ItemsAdapter(var items: List<Item>, var context: Context): RecyclerView.Ad
         val imageId = context.resources.getIdentifier(items[position].image, "drawable", context.packageName)
 
         holder.image.setImageResource(imageId)
+
+        holder.btn.setOnClickListener {
+            val intent = Intent(context, ItemActivity::class.java)
+
+            intent.putExtra("itemTitle", items[position].title)
+            intent.putExtra("itemText", items[position].text)
+
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -39,6 +50,7 @@ class ItemsAdapter(var items: List<Item>, var context: Context): RecyclerView.Ad
         val title = view.findViewById<TextView>(R.id.itemListTitle)
         val desc = view.findViewById<TextView>(R.id.itemListDesc)
         val price = view.findViewById<TextView>(R.id.itemListPrice)
+        val btn = view.findViewById<Button>(R.id.itemListButton)
     }
 
 }
